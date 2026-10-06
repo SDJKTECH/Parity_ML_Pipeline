@@ -3,7 +3,7 @@ from typing import Any, Callable
 from Pipeline.context import PipelineContext
 from Pipeline.utils.intent import classify_prompt_mode
 
-# Import stages directly to prevent circular imports:
+# Import stage functions directly to prevent circular imports[cite: 37]:
 from Pipeline.stages.step1_alignment import run as run_step1
 from Pipeline.stages.step2_feature_extraction import run as run_step2
 from Pipeline.stages.step3_ssim_lighting import run as run_step3
@@ -15,26 +15,28 @@ StepCallable = Callable[[PipelineContext], bool]
 
 
 class PipelineRunner:
-  """Pluggable, prompt-routed pipeline execution engine."""
+  """Pluggable, prompt-routed pipeline execution engine with clean progress reporting[cite: 37]."""
 
   def __init__(self, steps: list[Any] | None = None):
     self.explicit_steps = steps
 
-  def _get_step_label(self, step_fn: StepCallable) -> str:
-    module_name = getattr(step_fn, "__module__", "")
+  def _get_user_friendly_label(self, step_fn: StepCallable) -> str:
+    """Returns clean, non-technical stage progress descriptions."""
+    fn_name = getattr(step_fn, "__name__", "")
+    mod_name = getattr(step_fn, "__module__", "")
 
-    name_map = {
-        "step1_alignment": "Image Alignment & Homography",
-        "step2_feature_extraction": "Object & Feature Extraction",
-        "step3_ssim_lighting": "Lighting & SSIM Comparison",
-        "step3b_bulb_detection": "Bulb & Fixture Verification",
-        "step4_delta_checklist": "Delta & Inventory Checklist",
-        "step5_vlm_inspection": "Multimodal VLM Visual Inspection",
-    }
-
-    for key, display_name in name_map.items():
-      if key in module_name:
-        return display_name
+    if "step1_alignment" in mod_name or "step1" in fn_name:
+      return "Perspective Alignment & Geometry Verification"
+    if "step2_feature_extraction" in mod_name or "step2" in fn_name:
+      return "Inventory & Furniture Detection (YOLO)"
+    if "step3_ssim_lighting" in mod_name or "step3" in fn_name:
+      return "Structural Similarity & Luminance Delta Analysis"
+    if "step3b_bulb_detection" in mod_name or "step3b" in fn_name:
+      return "Ceiling Light Candidate Extraction & Verification"
+    if "step4_delta_checklist" in mod_name or "step4" in fn_name:
+      return "Discrepancy Audit & Checklist Formulation"
+    if "step5_vlm_inspection" in mod_name or "step5" in fn_name:
+      return "Multimodal Semantic Visual Inspection (VLM)"
 
     return (
         getattr(step_fn, "__name__", "Processing Step")
@@ -43,9 +45,9 @@ class PipelineRunner:
     )
 
   def _resolve_steps_for_mode(self, mode: str) -> list[StepCallable]:
-    """Dynamically builds stage sequence so only ONE pipeline branch runs."""
+    """Dynamically builds stage sequence so only ONE pipeline branch executes[cite: 37]."""
     if mode == "BULBS":
-      # BULB PIPELINE: Skip YOLO Object Extraction (step 2)
+      # BULBS MODE: Skip YOLO Object Extraction (Step 2)[cite: 37]
       return [
           run_step1,
           run_step3,
@@ -54,7 +56,7 @@ class PipelineRunner:
           run_step5,
       ]
     elif mode == "OBJECTS":
-      # OBJECT PIPELINE: Skip Bulb Detector & CLIP Classifier (step 3b)
+      # OBJECTS MODE: Skip Bulb Detector & Candidate Crops (Step 3b)[cite: 37]
       return [
           run_step1,
           run_step2,
@@ -63,7 +65,7 @@ class PipelineRunner:
           run_step5,
       ]
     else:
-      # ALL / Fallback: Run both
+      # FALLBACK: Run all stages[cite: 37]
       return [
           run_step1,
           run_step2,
@@ -74,8 +76,8 @@ class PipelineRunner:
       ]
 
   def run(self, ctx: PipelineContext) -> PipelineContext:
-    """Classifies prompt intent and runs only the relevant branch."""
-    # 1. Resolve execution mode if not manually preset
+    """Classifies prompt intent, selects steps, and prints clean progress logs[cite: 37]."""
+    # 1. Resolve execution mode if not already set[cite: 37]
     current_mode = getattr(ctx, "audit_mode", "ALL")
     if current_mode == "ALL":
       prompt = (
@@ -88,32 +90,48 @@ class PipelineRunner:
     else:
       ctx.audit_mode = current_mode
 
-    print(
-        f"\n[ORCHESTRATOR] Prompt-Routed Mode: >>> {ctx.audit_mode} <<<"
-        f" ({'Bulb Verification Only' if ctx.audit_mode == 'BULBS' else 'Object / Drift Audit Only'})"
+    mode_description = (
+        "Lighting & Bulb Verification Only"
+        if ctx.audit_mode == "BULBS"
+        else "Furniture Alignment & Cleanliness Only"
     )
 
-    # 2. Select stage sequence
+    print(f"\n[ORCHESTRATOR] Prompt Mode : >>> {ctx.audit_mode} <<<")
+    print(f"[ORCHESTRATOR] Task Focus  : {mode_description}")
+
+    # 2. Select stage sequence[cite: 37]
     steps_to_run = (
         self.explicit_steps
         if self.explicit_steps is not None
         else self._resolve_steps_for_mode(ctx.audit_mode)
     )
 
-    # 3. Execute stages sequentially
-    for step_fn in steps_to_run:
-      step_name = self._get_step_label(step_fn)
+    total_steps = len(steps_to_run)
+
+    # 3. Execute stages with clean progress indicators[cite: 37]
+    for idx, step_fn in enumerate(steps_to_run, start=1):
+      step_label = self._get_user_friendly_label(step_fn)
 
       if getattr(ctx, "halt", False):
         print(f"\n[PIPELINE ABORTED] Inspection stopped early.")
         break
 
-      success = step_fn(ctx)
+      print(f"[{idx}/{total_steps}] {step_label}...", end=" ", flush=True)
 
-      if not success or getattr(ctx, "halt", False):
+      try:
+        success = step_fn(ctx)
+      except Exception as exc:
+        success = False
+        if hasattr(ctx, "errors"):
+          ctx.errors.append(str(exc))
+
+      if success and not getattr(ctx, "halt", False):
+        print("Done.")
+      else:
         ctx.halt = True
+        print("FAILED.")
         print("\n" + "=" * 55)
-        print(f"[PIPELINE STOPPED] Verification failed at: {step_name}")
+        print(f"[PIPELINE STOPPED] Verification failed at: {step_label}")
         errors = getattr(ctx, "errors", [])
         if errors:
           print(f"Reason: {errors[-1]}")

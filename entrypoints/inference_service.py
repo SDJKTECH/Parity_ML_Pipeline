@@ -311,17 +311,17 @@ def evaluate_worker_capture(
         f"Could not load valid image from input: {current_image_input}"
     )
 
-  # Build context with prompt and mode routing
+  #Build context with prompt and mode routing
   ctx = PipelineContext(
-      room_name=room_name,
-      raw_current_img=raw_current_img,
-      master_img=master_img,
-      master_data=master_data,
-      model=model,
-      img_path=img_path,
-      filename=filename,
-      prompt_text=prompt_text,
-      audit_mode=audit_mode,
+    room_name=room_name,
+    raw_current_img=raw_current_img,
+    master_img=master_img,
+    master_data=master_data,
+    model=model,
+    img_path=img_path,
+    filename=filename,
+    prompt_text=prompt_text,
+    audit_mode=audit_mode,
   )
 
   # Run pipeline stages
@@ -333,25 +333,24 @@ def evaluate_worker_capture(
   os.makedirs(output_dir, exist_ok=True)
   out_path = os.path.join(output_dir, f"{room_name}_annotated_result.jpg")
   cv2.imwrite(out_path, annotated_canvas)
-  print(f"[SAVED] Inspection visual written to: {out_path}")
-  print(f"[VERDICT] Status: {ctx.verdict} (Mode: {ctx.audit_mode})")
 
   l_delta = getattr(ctx, "lighting_delta", 0.0) or getattr(
-      ctx, "brightness_diff", 0.0
+    ctx, "brightness_diff", 0.0
   )
 
+  # Return clean, rounded metrics (no verbose duplicate prints)
   return {
-      "room_name": ctx.room_name,
-      "audit_mode": ctx.audit_mode,
-      "verdict": ctx.verdict,
-      "ssim_score": ctx.ssim_score,
-      "lighting_delta": l_delta,
-      "active_bulbs": ctx.current_bulb_count,
-      "expected_bulbs": ctx.baseline_bulb_count,
-      "out_of_view_bulbs": getattr(ctx, "out_of_view_bulbs", []),
-      "missing_items": ctx.missing_items,
-      "drift_alerts": ctx.drift_alerts,
-      "clutter_items": ctx.clutter_items,
-      "checklist": ctx.reset_checklist,
-      "annotated_image_path": out_path,
+    "room_name": ctx.room_name,
+    "audit_mode": ctx.audit_mode,
+    "verdict": ctx.verdict,
+    "ssim_score": round(float(ctx.ssim_score), 2),
+    "lighting_delta": round(float(l_delta), 2),
+    "active_bulbs": ctx.current_bulb_count,
+    "expected_bulbs": ctx.baseline_bulb_count,
+    "out_of_view_bulbs": getattr(ctx, "out_of_view_bulbs", []),
+    "missing_items": ctx.missing_items,
+    "drift_alerts": ctx.drift_alerts,
+    "clutter_items": ctx.clutter_items,
+    "checklist": ctx.reset_checklist,
+    "annotated_image_path": out_path,
   }

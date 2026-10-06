@@ -32,7 +32,7 @@ def open_bulk_file_dialog(initial_dir: str) -> list[str]:
 
 def main():
   print("\n" + "=" * 60)
-  print(" 🏢 OWNER MASTER BASELINE REGISTRATION WITH PROMPT SETUP")
+  print(" 🏢 OWNER MASTER BASELINE REGISTRATION")
   print("=" * 60)
 
   selected_image_paths = open_bulk_file_dialog(MASTER_DIR)
@@ -67,25 +67,43 @@ def main():
         "Inspect chair alignment, check for missing plants, tables and clutter."
     )
 
-  print(f"\n[CONFIG] Assigned Prompt: '{prompt_name}'")
-  print(f"[CONFIG] Instructions   : '{prompt_instructions}'")
-
+  print(f"\n[CONFIG] Preset Name : {prompt_name}")
+  print(f"[CONFIG] Instructions: {prompt_instructions}")
+  print("[INFO] Preparing vision extractors...")
   get_engines()
+
+  results = []
+  print("\n" + "=" * 60)
+  print(" ⚙️ REGISTERING BASELINES")
+  print("=" * 60)
 
   for idx, img_path in enumerate(selected_image_paths, start=1):
     room_name = os.path.splitext(os.path.basename(img_path))[0]
-    print(f"\n[{idx}/{len(selected_image_paths)}] Registering '{room_name}'...")
-    process_master_image(
-        image_input=img_path,
-        room_name=room_name,
-        prompt_name=prompt_name,
-        prompt_instructions=prompt_instructions,
-        output_baseline_dir=BASELINES_DIR,
-        export_annotated_dir=TESTING_DIR,
-    )
+    print(f"[{idx}/{len(selected_image_paths)}] Processing '{room_name}'...")
+    try:
+      data = process_master_image(
+          image_input=img_path,
+          room_name=room_name,
+          prompt_name=prompt_name,
+          prompt_instructions=prompt_instructions,
+          output_baseline_dir=BASELINES_DIR,
+          export_annotated_dir=TESTING_DIR,
+      )
+      obj_count = len(data.get("objects", []))
+      bulb_count = data.get("bulb_count", 0)
+      results.append(
+          (room_name, "SUCCESS", f"{obj_count} objects, {bulb_count} bulbs")
+      )
+    except Exception as exc:
+      results.append((room_name, "FAILED", str(exc)))
 
   print("\n" + "=" * 60)
-  print("✅ Registration complete! Baselines saved with prompt rules.")
+  print(" 📋 REGISTRATION SUMMARY")
+  print("=" * 60)
+  for room_name, status, details in results:
+    icon = "✅" if status == "SUCCESS" else "❌"
+    print(f"  {icon} {room_name:<20} : {status:<8} ({details})")
+  print(f"\nBaselines ready in: {BASELINES_DIR}")
   print("=" * 60 + "\n")
 
 

@@ -492,6 +492,6 @@
             "contour_area": 9.0
         }
     ],
-    "prompt_name": "Floor1",
-    "prompt_instructions": "Check if all the bulbs and tubelights are working or not"
+    "prompt_name": "desc",
+    "prompt_instructions": "find the misplaced objects in the image"
 }

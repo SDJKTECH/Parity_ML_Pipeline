@@ -82,5 +82,7 @@
             ],
             "contour_area": 879.0
         }
-    ]
+    ],
+    "prompt_name": "Bathroom",
+    "prompt_instructions": "Check if the lights are working or now"
 }
