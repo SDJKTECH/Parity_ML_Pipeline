@@ -1,0 +1,55 @@
+# Bytecode and runtime caches
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+
+# Model weights & large binaries (yolov8l.pt, yolov8n.pt, etc.)
+*.pt
+*.pth
+*.onnx
+*.bin
+*.weights
+*.engine
+
+# Virtual Environments
+venv/
+.venv/
+env/
+cafe_env/
+ENV/
+
+# Image datasets and pipeline test runs
+Pipeline/current_images/
+Pipeline/output_images/
+Pipeline/master_images/
+Pipeline/baselines/
+
+# Alternatively, if you put .gitignore inside the Pipeline folder directly:
+# current_images/
+# output_images/
+# master_images/
+# baselines/
+
+# Keep folder structures if needed (uncomment if you want empty directories tracked)
+# !current_images/.gitkeep
+# !output_images/.gitkeep
+# !master_images/.gitkeep
+
+# Environment variables & secrets
+.env
+.env.*
+*.env
+*.key
+*.pem
+serviceAccountKey.json
+
+# IDE and OS files
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+desktop.ini

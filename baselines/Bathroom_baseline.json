@@ -1,0 +1,62 @@
+{
+    "image_shape": [
+        1293,
+        1724
+    ],
+    "brightness": 126.23,
+    "objects": [],
+    "room_name": "Bathroom",
+    "bulb_count": 2,
+    "bulb_detections": [
+        {
+            "id": 1,
+            "confidence": 1.0137,
+            "label": "bulb",
+            "bbox": [
+                358,
+                372,
+                481,
+                479
+            ],
+            "contour_area": 8772.0
+        },
+        {
+            "id": 2,
+            "confidence": 1.0224,
+            "label": "bulb",
+            "bbox": [
+                1320,
+                465,
+                1425,
+                553
+            ],
+            "contour_area": 5686.5
+        }
+    ],
+    "bulbs": [
+        {
+            "id": 1,
+            "confidence": 1.0137,
+            "label": "bulb",
+            "bbox": [
+                358,
+                372,
+                481,
+                479
+            ],
+            "contour_area": 8772.0
+        },
+        {
+            "id": 2,
+            "confidence": 1.0224,
+            "label": "bulb",
+            "bbox": [
+                1320,
+                465,
+                1425,
+                553
+            ],
+            "contour_area": 5686.5
+        }
+    ]
+}

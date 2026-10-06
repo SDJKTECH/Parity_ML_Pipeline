@@ -1,0 +1,83 @@
+{
+    "image_shape": [
+        2048,
+        921
+    ],
+    "brightness": 135.7,
+    "objects": [
+        {
+            "label": "laptop",
+            "bbox": [
+                731.83,
+                96.3,
+                920,
+                312.41
+            ],
+            "centroid": [
+                825,
+                204
+            ],
+            "confidence": 0.93
+        },
+        {
+            "label": "bed",
+            "bbox": [
+                0.14,
+                244.37,
+                920,
+                1705.85
+            ],
+            "centroid": [
+                460,
+                975
+            ],
+            "confidence": 0.9
+        },
+        {
+            "label": "bottle",
+            "bbox": [
+                628.7,
+                37.72,
+                686.9,
+                260.4
+            ],
+            "centroid": [
+                657,
+                149
+            ],
+            "confidence": 0.81
+        }
+    ],
+    "room_name": "bed",
+    "bulb_count": 1,
+    "bulb_detections": [
+        {
+            "id": 1,
+            "confidence": 0.5018,
+            "label": "bulb",
+            "bbox": [
+                723,
+                569,
+                747,
+                584
+            ],
+            "contour_area": 32.0
+        }
+    ],
+    "bulbs": [
+        {
+            "id": 1,
+            "confidence": 0.5018,
+            "label": "bulb",
+            "bbox": [
+                723,
+                569,
+                747,
+                584
+            ],
+            "contour_area": 32.0
+        }
+    ],
+    "prompt_name": "Bed",
+    "prompt_instructions": "The objects should not be misplaced and should be organized"
+}

@@ -1,0 +1,163 @@
+{
+    "image_shape": [
+        2448,
+        3264
+    ],
+    "brightness": 116.25,
+    "objects": [
+        {
+            "label": "bottle",
+            "bbox": [
+                292.36,
+                724.92,
+                681.05,
+                1393.73
+            ],
+            "centroid": [
+                486,
+                1059
+            ],
+            "confidence": 0.92
+        },
+        {
+            "label": "clock",
+            "bbox": [
+                1519.38,
+                817.81,
+                1711.26,
+                1036.4
+            ],
+            "centroid": [
+                1615,
+                927
+            ],
+            "confidence": 0.5
+        }
+    ],
+    "room_name": "kitchen",
+    "bulb_count": 5,
+    "bulb_detections": [
+        {
+            "id": 1,
+            "confidence": 0.7587,
+            "label": "bulb",
+            "bbox": [
+                2863,
+                273,
+                2988,
+                318
+            ],
+            "contour_area": 1130.5
+        },
+        {
+            "id": 2,
+            "confidence": 0.5142,
+            "label": "bulb",
+            "bbox": [
+                2792,
+                606,
+                2936,
+                665
+            ],
+            "contour_area": 674.5
+        },
+        {
+            "id": 3,
+            "confidence": 0.6788,
+            "label": "bulb",
+            "bbox": [
+                2831,
+                445,
+                2913,
+                480
+            ],
+            "contour_area": 167.0
+        },
+        {
+            "id": 4,
+            "confidence": 0.75,
+            "label": "bulb",
+            "bbox": [
+                1363,
+                699,
+                1392,
+                715
+            ],
+            "contour_area": 35.0
+        },
+        {
+            "id": 5,
+            "confidence": 0.5392,
+            "label": "bulb",
+            "bbox": [
+                1626,
+                640,
+                1652,
+                656
+            ],
+            "contour_area": 31.0
+        }
+    ],
+    "bulbs": [
+        {
+            "id": 1,
+            "confidence": 0.7587,
+            "label": "bulb",
+            "bbox": [
+                2863,
+                273,
+                2988,
+                318
+            ],
+            "contour_area": 1130.5
+        },
+        {
+            "id": 2,
+            "confidence": 0.5142,
+            "label": "bulb",
+            "bbox": [
+                2792,
+                606,
+                2936,
+                665
+            ],
+            "contour_area": 674.5
+        },
+        {
+            "id": 3,
+            "confidence": 0.6788,
+            "label": "bulb",
+            "bbox": [
+                2831,
+                445,
+                2913,
+                480
+            ],
+            "contour_area": 167.0
+        },
+        {
+            "id": 4,
+            "confidence": 0.75,
+            "label": "bulb",
+            "bbox": [
+                1363,
+                699,
+                1392,
+                715
+            ],
+            "contour_area": 35.0
+        },
+        {
+            "id": 5,
+            "confidence": 0.5392,
+            "label": "bulb",
+            "bbox": [
+                1626,
+                640,
+                1652,
+                656
+            ],
+            "contour_area": 31.0
+        }
+    ]
+}

@@ -1,0 +1,27 @@
+{
+    "image_shape": [
+        921,
+        2048
+    ],
+    "brightness": 103.59,
+    "objects": [
+        {
+            "label": "person",
+            "bbox": [
+                1757.31,
+                409.67,
+                2047,
+                858.51
+            ],
+            "centroid": [
+                1902,
+                634
+            ],
+            "confidence": 0.83
+        }
+    ],
+    "room_name": "shoes",
+    "bulb_count": 0,
+    "bulb_detections": [],
+    "bulbs": []
+}

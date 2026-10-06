@@ -1,0 +1,497 @@
+{
+    "image_shape": [
+        1048,
+        1724
+    ],
+    "brightness": 135.16,
+    "objects": [
+        {
+            "label": "chair",
+            "bbox": [
+                461.91,
+                1006.35,
+                598.58,
+                1047
+            ],
+            "centroid": [
+                530,
+                1026
+            ],
+            "confidence": 0.74
+        },
+        {
+            "label": "chair",
+            "bbox": [
+                1322.99,
+                984.37,
+                1401.82,
+                1044.94
+            ],
+            "centroid": [
+                1362,
+                1014
+            ],
+            "confidence": 0.69
+        },
+        {
+            "label": "chair",
+            "bbox": [
+                1046.53,
+                962.17,
+                1105.52,
+                1047
+            ],
+            "centroid": [
+                1076,
+                1004
+            ],
+            "confidence": 0.69
+        },
+        {
+            "label": "chair",
+            "bbox": [
+                1536.65,
+                1003.69,
+                1617.64,
+                1047
+            ],
+            "centroid": [
+                1577,
+                1025
+            ],
+            "confidence": 0.69
+        },
+        {
+            "label": "chair",
+            "bbox": [
+                920.29,
+                975.66,
+                1006.09,
+                1044.99
+            ],
+            "centroid": [
+                963,
+                1010
+            ],
+            "confidence": 0.68
+        },
+        {
+            "label": "chair",
+            "bbox": [
+                1615.75,
+                1003.64,
+                1704.7,
+                1047
+            ],
+            "centroid": [
+                1660,
+                1025
+            ],
+            "confidence": 0.66
+        },
+        {
+            "label": "potted plant",
+            "bbox": [
+                1186.12,
+                958.32,
+                1348.15,
+                1047
+            ],
+            "centroid": [
+                1267,
+                1002
+            ],
+            "confidence": 0.62
+        },
+        {
+            "label": "potted plant",
+            "bbox": [
+                837.9,
+                948.01,
+                891.68,
+                1021.89
+            ],
+            "centroid": [
+                864,
+                984
+            ],
+            "confidence": 0.59
+        },
+        {
+            "label": "person",
+            "bbox": [
+                1136.12,
+                922.42,
+                1205.0,
+                1039.7
+            ],
+            "centroid": [
+                1170,
+                981
+            ],
+            "confidence": 0.59
+        },
+        {
+            "label": "potted plant",
+            "bbox": [
+                1415.87,
+                910.35,
+                1613.51,
+                1047
+            ],
+            "centroid": [
+                1514,
+                978
+            ],
+            "confidence": 0.55
+        },
+        {
+            "label": "chair",
+            "bbox": [
+                445.23,
+                985.23,
+                501.06,
+                1045.74
+            ],
+            "centroid": [
+                473,
+                1015
+            ],
+            "confidence": 0.54
+        },
+        {
+            "label": "chair",
+            "bbox": [
+                1099.04,
+                960.88,
+                1207.82,
+                1047
+            ],
+            "centroid": [
+                1153,
+                1003
+            ],
+            "confidence": 0.51
+        }
+    ],
+    "room_name": "FirstFloor",
+    "bulb_count": 13,
+    "bulb_detections": [
+        {
+            "id": 1,
+            "confidence": 1.0271,
+            "label": "bulb",
+            "bbox": [
+                1244,
+                0,
+                1724,
+                286
+            ],
+            "contour_area": 22032.5
+        },
+        {
+            "id": 2,
+            "confidence": 1.0282,
+            "label": "bulb",
+            "bbox": [
+                16,
+                514,
+                853,
+                649
+            ],
+            "contour_area": 6946.5
+        },
+        {
+            "id": 3,
+            "confidence": 1.038,
+            "label": "bulb",
+            "bbox": [
+                1371,
+                708,
+                1656,
+                761
+            ],
+            "contour_area": 1498.5
+        },
+        {
+            "id": 4,
+            "confidence": 1.0198,
+            "label": "bulb",
+            "bbox": [
+                273,
+                695,
+                338,
+                737
+            ],
+            "contour_area": 554.0
+        },
+        {
+            "id": 5,
+            "confidence": 1.0064,
+            "label": "bulb",
+            "bbox": [
+                774,
+                747,
+                885,
+                779
+            ],
+            "contour_area": 550.5
+        },
+        {
+            "id": 6,
+            "confidence": 0.9436,
+            "label": "bulb",
+            "bbox": [
+                1089,
+                779,
+                1225,
+                802
+            ],
+            "contour_area": 342.5
+        },
+        {
+            "id": 7,
+            "confidence": 1.037,
+            "label": "bulb",
+            "bbox": [
+                1058,
+                654,
+                1101,
+                675
+            ],
+            "contour_area": 335.0
+        },
+        {
+            "id": 8,
+            "confidence": 1.0237,
+            "label": "bulb",
+            "bbox": [
+                1145,
+                736,
+                1179,
+                751
+            ],
+            "contour_area": 122.0
+        },
+        {
+            "id": 9,
+            "confidence": 1.0147,
+            "label": "bulb",
+            "bbox": [
+                887,
+                775,
+                914,
+                789
+            ],
+            "contour_area": 68.5
+        },
+        {
+            "id": 10,
+            "confidence": 0.9834,
+            "label": "bulb",
+            "bbox": [
+                304,
+                775,
+                333,
+                788
+            ],
+            "contour_area": 56.0
+        },
+        {
+            "id": 11,
+            "confidence": 0.9909,
+            "label": "bulb",
+            "bbox": [
+                523,
+                787,
+                550,
+                799
+            ],
+            "contour_area": 46.5
+        },
+        {
+            "id": 12,
+            "confidence": 0.9448,
+            "label": "bulb",
+            "bbox": [
+                732,
+                800,
+                754,
+                810
+            ],
+            "contour_area": 9.0
+        },
+        {
+            "id": 13,
+            "confidence": 0.9824,
+            "label": "bulb",
+            "bbox": [
+                1170,
+                719,
+                1193,
+                730
+            ],
+            "contour_area": 9.0
+        }
+    ],
+    "bulbs": [
+        {
+            "id": 1,
+            "confidence": 1.0271,
+            "label": "bulb",
+            "bbox": [
+                1244,
+                0,
+                1724,
+                286
+            ],
+            "contour_area": 22032.5
+        },
+        {
+            "id": 2,
+            "confidence": 1.0282,
+            "label": "bulb",
+            "bbox": [
+                16,
+                514,
+                853,
+                649
+            ],
+            "contour_area": 6946.5
+        },
+        {
+            "id": 3,
+            "confidence": 1.038,
+            "label": "bulb",
+            "bbox": [
+                1371,
+                708,
+                1656,
+                761
+            ],
+            "contour_area": 1498.5
+        },
+        {
+            "id": 4,
+            "confidence": 1.0198,
+            "label": "bulb",
+            "bbox": [
+                273,
+                695,
+                338,
+                737
+            ],
+            "contour_area": 554.0
+        },
+        {
+            "id": 5,
+            "confidence": 1.0064,
+            "label": "bulb",
+            "bbox": [
+                774,
+                747,
+                885,
+                779
+            ],
+            "contour_area": 550.5
+        },
+        {
+            "id": 6,
+            "confidence": 0.9436,
+            "label": "bulb",
+            "bbox": [
+                1089,
+                779,
+                1225,
+                802
+            ],
+            "contour_area": 342.5
+        },
+        {
+            "id": 7,
+            "confidence": 1.037,
+            "label": "bulb",
+            "bbox": [
+                1058,
+                654,
+                1101,
+                675
+            ],
+            "contour_area": 335.0
+        },
+        {
+            "id": 8,
+            "confidence": 1.0237,
+            "label": "bulb",
+            "bbox": [
+                1145,
+                736,
+                1179,
+                751
+            ],
+            "contour_area": 122.0
+        },
+        {
+            "id": 9,
+            "confidence": 1.0147,
+            "label": "bulb",
+            "bbox": [
+                887,
+                775,
+                914,
+                789
+            ],
+            "contour_area": 68.5
+        },
+        {
+            "id": 10,
+            "confidence": 0.9834,
+            "label": "bulb",
+            "bbox": [
+                304,
+                775,
+                333,
+                788
+            ],
+            "contour_area": 56.0
+        },
+        {
+            "id": 11,
+            "confidence": 0.9909,
+            "label": "bulb",
+            "bbox": [
+                523,
+                787,
+                550,
+                799
+            ],
+            "contour_area": 46.5
+        },
+        {
+            "id": 12,
+            "confidence": 0.9448,
+            "label": "bulb",
+            "bbox": [
+                732,
+                800,
+                754,
+                810
+            ],
+            "contour_area": 9.0
+        },
+        {
+            "id": 13,
+            "confidence": 0.9824,
+            "label": "bulb",
+            "bbox": [
+                1170,
+                719,
+                1193,
+                730
+            ],
+            "contour_area": 9.0
+        }
+    ],
+    "prompt_name": "Floor1",
+    "prompt_instructions": "Check if all the bulbs and tubelights are working or not"
+}

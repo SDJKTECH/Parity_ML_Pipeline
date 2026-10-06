@@ -1,0 +1,27 @@
+{
+    "image_shape": [
+        2048,
+        921
+    ],
+    "brightness": 113.67,
+    "objects": [
+        {
+            "label": "toilet",
+            "bbox": [
+                160.1,
+                526.06,
+                739.58,
+                1593.92
+            ],
+            "centroid": [
+                449,
+                1059
+            ],
+            "confidence": 0.95
+        }
+    ],
+    "room_name": "toilet",
+    "bulb_count": 0,
+    "bulb_detections": [],
+    "bulbs": []
+}

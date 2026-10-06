@@ -1,0 +1,55 @@
+{
+    "image_shape": [
+        3264,
+        2448
+    ],
+    "brightness": 129.39,
+    "objects": [
+        {
+            "label": "bottle",
+            "bbox": [
+                322.56,
+                0,
+                758.01,
+                559.23
+            ],
+            "centroid": [
+                540,
+                279
+            ],
+            "confidence": 0.83
+        },
+        {
+            "label": "sink",
+            "bbox": [
+                139.52,
+                567.06,
+                2253.52,
+                2288.27
+            ],
+            "centroid": [
+                1196,
+                1427
+            ],
+            "confidence": 0.81
+        },
+        {
+            "label": "person",
+            "bbox": [
+                1059.43,
+                2865.43,
+                1902.39,
+                3262.52
+            ],
+            "centroid": [
+                1480,
+                3063
+            ],
+            "confidence": 0.76
+        }
+    ],
+    "room_name": "sink",
+    "bulb_count": 0,
+    "bulb_detections": [],
+    "bulbs": []
+}
