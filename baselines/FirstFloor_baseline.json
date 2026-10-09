@@ -1,180 +1,14 @@
 {
+    "room_name": "FirstFloor",
     "image_shape": [
         1048,
         1724
     ],
     "brightness": 135.16,
-    "objects": [
-        {
-            "label": "chair",
-            "bbox": [
-                461.91,
-                1006.35,
-                598.58,
-                1047
-            ],
-            "centroid": [
-                530,
-                1026
-            ],
-            "confidence": 0.74
-        },
-        {
-            "label": "chair",
-            "bbox": [
-                1322.99,
-                984.37,
-                1401.82,
-                1044.94
-            ],
-            "centroid": [
-                1362,
-                1014
-            ],
-            "confidence": 0.69
-        },
-        {
-            "label": "chair",
-            "bbox": [
-                1046.53,
-                962.17,
-                1105.52,
-                1047
-            ],
-            "centroid": [
-                1076,
-                1004
-            ],
-            "confidence": 0.69
-        },
-        {
-            "label": "chair",
-            "bbox": [
-                1536.65,
-                1003.69,
-                1617.64,
-                1047
-            ],
-            "centroid": [
-                1577,
-                1025
-            ],
-            "confidence": 0.69
-        },
-        {
-            "label": "chair",
-            "bbox": [
-                920.29,
-                975.66,
-                1006.09,
-                1044.99
-            ],
-            "centroid": [
-                963,
-                1010
-            ],
-            "confidence": 0.68
-        },
-        {
-            "label": "chair",
-            "bbox": [
-                1615.75,
-                1003.64,
-                1704.7,
-                1047
-            ],
-            "centroid": [
-                1660,
-                1025
-            ],
-            "confidence": 0.66
-        },
-        {
-            "label": "potted plant",
-            "bbox": [
-                1186.12,
-                958.32,
-                1348.15,
-                1047
-            ],
-            "centroid": [
-                1267,
-                1002
-            ],
-            "confidence": 0.62
-        },
-        {
-            "label": "potted plant",
-            "bbox": [
-                837.9,
-                948.01,
-                891.68,
-                1021.89
-            ],
-            "centroid": [
-                864,
-                984
-            ],
-            "confidence": 0.59
-        },
-        {
-            "label": "person",
-            "bbox": [
-                1136.12,
-                922.42,
-                1205.0,
-                1039.7
-            ],
-            "centroid": [
-                1170,
-                981
-            ],
-            "confidence": 0.59
-        },
-        {
-            "label": "potted plant",
-            "bbox": [
-                1415.87,
-                910.35,
-                1613.51,
-                1047
-            ],
-            "centroid": [
-                1514,
-                978
-            ],
-            "confidence": 0.55
-        },
-        {
-            "label": "chair",
-            "bbox": [
-                445.23,
-                985.23,
-                501.06,
-                1045.74
-            ],
-            "centroid": [
-                473,
-                1015
-            ],
-            "confidence": 0.54
-        },
-        {
-            "label": "chair",
-            "bbox": [
-                1099.04,
-                960.88,
-                1207.82,
-                1047
-            ],
-            "centroid": [
-                1153,
-                1003
-            ],
-            "confidence": 0.51
-        }
-    ],
-    "room_name": "FirstFloor",
+    "audit_mode": "BULBS",
+    "prompt_name": "Ceiling Lighting Inspection",
+    "prompt_instructions": "Check if all ceiling tube lights and hanging bulbs are turned on.",
+    "objects": [],
     "bulb_count": 13,
     "bulb_detections": [
         {
@@ -491,7 +325,5 @@
             ],
             "contour_area": 9.0
         }
-    ],
-    "prompt_name": "desc",
-    "prompt_instructions": "find the misplaced objects in the image"
+    ]
 }

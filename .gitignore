@@ -21,16 +21,17 @@ cafe_env/
 ENV/
 
 # Image datasets and pipeline test runs
-Pipeline/current_images/
-Pipeline/output_images/
-Pipeline/master_images/
-Pipeline/baselines/
+# Pipeline/current_images/
+# Pipeline/output_images/
+# Pipeline/master_images/
+# Pipeline/baselines/
 
 # Alternatively, if you put .gitignore inside the Pipeline folder directly:
-# current_images/
-# output_images/
-# master_images/
-# baselines/
+current_images/
+output_images/
+master_images/
+baselines/
+Testing/
 
 # Keep folder structures if needed (uncomment if you want empty directories tracked)
 # !current_images/.gitkeep

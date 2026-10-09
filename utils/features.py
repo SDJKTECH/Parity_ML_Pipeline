@@ -8,6 +8,7 @@ def extract_features(
     image_input: str | np.ndarray,
     model,
     conf_threshold: float = 0.50,
+    imgsz: int = 1280,
 ) -> tuple[dict, np.ndarray]:
     """
     Extracts bounding boxes, centroids, and lighting data from an image path or array.
@@ -42,7 +43,7 @@ def extract_features(
     h, w = img.shape[:2]
 
     # 2. Run YOLO directly on the array with explicit confidence threshold
-    results = model(img, conf=conf_threshold, verbose=False)
+    results = model(img, conf=conf_threshold,imgsz=imgsz, verbose=False)
     objects = []
 
     for r in results:

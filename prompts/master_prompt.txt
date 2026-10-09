@@ -36,6 +36,8 @@ You must map detected discrepancies to the following strict categories:
 ### TOLERANCE & NOISE
 - IGNORE minor perspective shifts, camera angle differences, image compression artifacts, or slight shadows. 
 - Only flag anomalies if they require physical human intervention to fix.
+- CAMERA FIELD-OF-VIEW (FOV) TOLERANCE: If an object (such as a high wall-mounted fixture, fire extinguisher, edge plant, or ceiling fixture) is simply cropped out due to a slightly shifted camera angle, zoom, or tilt, DO NOT report it as MISSING. Only report an object as MISSING if the specific physical surface or area where it is mounted/placed is clearly visible in the CURRENT IMAGE and the object is physically absent.
+- CONSUMABLES & CUPS: Minor variations in the count or arrangement of stacked disposable cups, paper napkins, and small coffee station amenities are acceptable and should NOT be flagged as drift or missing.
 
 ### DECISION LOGIC
 - If the CURRENT IMAGE matches the baseline state within acceptable tolerance, the status is "OK".

@@ -220,12 +220,62 @@ def draw_discrepancy_annotations(ctx: PipelineContext) -> np.ndarray:
   # BRANCH B: OBJECT DISCREPANCIES (Only when mode is 'OBJECTS' or 'ALL')
   # =========================================================================
   if mode in ("OBJECTS", "ALL"):
+    # 1. Populate text HUD list
     for missing in set(ctx.missing_items):
       hud_items.append(f"MISSING: {missing}")
     for drift in ctx.drift_alerts:
       hud_items.append(f"DRIFT: {drift}")
     for clutter in set(ctx.clutter_items):
       hud_items.append(f"CLUTTER: {clutter}")
+
+    # 2. Draw object bounding boxes directly on the aligned canvas
+    curr_objects = ctx.current_data.get("objects", [])
+    for obj in curr_objects:
+      bbox = obj.get("bbox")
+      if not bbox or len(bbox) != 4:
+        continue
+
+      ox1, oy1, ox2, oy2 = [
+          max(0, min(dim, int(v)))
+          for dim, v in zip([w - 1, h - 1, w - 1, h - 1], bbox)
+      ]
+      label = obj.get("label", "item")
+
+      # Check if this object triggered a drift alert
+      is_drifted = any(
+          label.lower() in alert.lower() for alert in ctx.drift_alerts
+      )
+      is_clutter = label in ctx.clutter_items
+
+      if is_drifted:
+        color = (0, 215, 255)  # Amber / Yellow for Drift
+        tag = f"{label} (DRIFT)"
+      elif is_clutter:
+        color = (0, 140, 255)  # Orange for Clutter
+        tag = f"{label} (CLUTTER)"
+      else:
+        color = (255, 200, 0)  # Cyan/Blue for Verified baseline items
+        tag = f"{label}"
+
+      cv2.rectangle(canvas, (ox1, oy1), (ox2, oy2), color, 2)
+      (lw, lh), _ = cv2.getTextSize(tag, cv2.FONT_HERSHEY_SIMPLEX, 0.45, 1)
+      cv2.rectangle(
+          canvas,
+          (ox1, max(0, oy1 - lh - 4)),
+          (ox1 + lw + 4, oy1),
+          color,
+          -1,
+      )
+      cv2.putText(
+          canvas,
+          tag,
+          (ox1 + 2, max(12, oy1 - 2)),
+          cv2.FONT_HERSHEY_SIMPLEX,
+          0.45,
+          (0, 0, 0),
+          1,
+          cv2.LINE_AA,
+      )
 
   # =========================================================================
   # 3. RENDER HUD BADGE
